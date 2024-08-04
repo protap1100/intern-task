@@ -1,9 +1,18 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useCityContext } from "./CityContext";
 import image from "../../assets/images/Group 1000001700.png";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
+  const { setSearchTerm } = useCityContext();
+  const [localSearchTerm, setLocalSearchTerm] = useState("");
+
+  const handleSearch = () => {
+    setSearchTerm(localSearchTerm);
+  };
+
   return (
-    <div className="flex p-8 flex-col gap-10 lg:flex-row items-center justify-between  rounded-xl">
+    <div className=" flex p-8 flex-col gap-10 lg:flex-row items-center justify-between rounded-xl">
       <div className="flex-1">
         <h1 className="text-2xl font-medium">
           I Am Looking for Massage Therapist Near...
@@ -14,23 +23,24 @@ const Banner = () => {
             Terms of Services
           </Link>
           and
-          <Link className="text-blue-500 underline font-bold  mx-1">
+          <Link className="text-blue-500 underline font-bold mx-1">
             Privacy Policy
           </Link>
         </h1>
         <div className="mt-10">
           <div className="relative">
-            <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none"></div>
             <input
-              type="search"
+              type="text"
               id="default-search"
-              className="block w-full p-4 ps-10 text-sm  border  rounded-lg bg-blue-50    dark:text-white "
+              className="block w-full p-4 text-sm border rounded-lg bg-blue-50 "
               placeholder="ZIP code or city name"
-              required
+              value={localSearchTerm}
+              onChange={(e) => setLocalSearchTerm(e.target.value)}
             />
             <button
-              type="submit"
-              className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800  font-medium rounded-lg text-sm px-4 py-2  "
+              type="button"
+              onClick={handleSearch}
+              className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2 cursor-pointer"
             >
               Go
             </button>
@@ -38,7 +48,7 @@ const Banner = () => {
         </div>
       </div>
       <div className="flex-1 flex justify-end">
-        <img src={image} alt="" />
+        <img src={image} alt="Banner" />
       </div>
     </div>
   );

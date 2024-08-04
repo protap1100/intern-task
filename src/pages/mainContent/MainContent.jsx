@@ -4,16 +4,16 @@ import Content from "./Content";
 
 const MainContent = () => {
   return (
-    <div className="bg-gray-200 grid grid-cols-12">
+    <div className="grid grid-cols-12">
       {/* Navbar */}
-      <div className="bg-blue-200 hidden lg:block col-span-1 border ">
+      <div className="hidden lg:block col-span-1 border">
         <Navbar></Navbar>
       </div>
-      <div className="lg:col-span-11 col-span-12">
-        <div className="bg-blue-200">
+      <div className="lg:col-span-11 bg-white col-span-12">
+        <div>
           <Topbar></Topbar>
         </div>
-        <div className="mt-5 lg:mt-10">
+        <div className=" bg-gray-200 ">
           <Content></Content>
         </div>
       </div>
