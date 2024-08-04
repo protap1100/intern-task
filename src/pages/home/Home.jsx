@@ -1,17 +1,9 @@
-import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { AuthContext } from "../../provider/AuthProvider";
+import Login from "../authenticaions/Login";
 
 const Home = () => {
-  const { user } = useContext(AuthContext);
-
   return (
     <div>
-      {user ? (
-        <div>Hello {user?.displayName || user?.email}</div>
-      ) : (
-        <Link to="/login">Login Here</Link>
-      )}
+        <Login></Login>
     </div>
   );
 };

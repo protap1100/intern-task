@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import image from "../../assets/images/nurse.jpg";
+import image from "../../assets/images/Group 1000001745.png";
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../../provider/AuthProvider";
@@ -141,7 +141,7 @@ const Register = () => {
               <h1 className="mt-5">
                 Already Have An Account?
                 <Link
-                  className="text-blue-500 underline font-semibold"
+                  className="text-blue-500 underline font-semibold ml-2"
                   to="/login"
                 >
                   Login

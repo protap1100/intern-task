@@ -4,8 +4,8 @@ import ErrorPage from "../pages/errorPage/ErrorPage";
 import Home from "../pages/home/Home";
 import Register from "../pages/authenticaions/Register";
 import Login from "../pages/authenticaions/Login";
-import PrivateRouter from "./PrivateRoutes";
-import AllItem from "../pages/all-item/AllItem";
+// import PrivateRouter from "./PrivateRoutes";
+import MainContent from "../pages/mainContent/MainContent";
 
 export const router = createBrowserRouter([
   {
@@ -26,12 +26,8 @@ export const router = createBrowserRouter([
         element: <Register></Register>,
       },
       {
-        path: "/all-item",
-        element: (
-          <PrivateRouter>
-            <AllItem></AllItem>
-          </PrivateRouter>
-        ),
+        path: "/main-content",
+        element: <MainContent></MainContent>,
       },
     ],
   },

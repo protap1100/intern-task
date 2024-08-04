@@ -1,10 +1,11 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import image from "../../assets/images/nurse.jpg";
+import image from "../../assets/images/Group 1000001745.png";
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../../provider/AuthProvider";
 import image2 from "../../assets/images/Group (1).png";
 import image3 from "../../assets/images/facebook.png";
+import "./login.css";
 
 const Login = () => {
   const { logIn, googleSignIn } = useContext(AuthContext);
@@ -25,19 +26,18 @@ const Login = () => {
     logIn(form.email, form.password)
       .then(() => {
         alert("User Login Successful");
-        navigate(location?.state ? location.state : "/");
+        navigate(location?.state ? location.state : "/main-content");
       })
       .catch((error) => {
         alert(`Login failed: ${error.message}`);
       });
   };
 
-
   const handleGoogleLogin = () => {
     googleSignIn()
       .then((result) => {
         alert(`User signed in: ${result.user.displayName}`);
-        navigate(location?.state ? location.state : "/");
+        navigate(location?.state ? location.state : "/main-content");
       })
       .catch((error) => {
         alert(`Login failed: ${error.message}`);
@@ -45,19 +45,22 @@ const Login = () => {
   };
 
   return (
-    <div className="flex flex-col-reverse lg:flex-row justify-center items-center gap-6 mt-20 p-4">
-      <div className="w-full lg:w-1/2 px-5 lg:px-20 ">
+    <div className="flex flex-col-reverse lg:flex-row justify-center container mx-auto items-center gap-6 mt-20 p-4 small-screen-bg">
+      <div className="flex-1 px-5 lg:px-20">
         <div>
           <h1 className="text-4xl text-blue-500">LOGO</h1>
           <h1 className="text-3xl font-bold mt-5">Log in to Your Account</h1>
           <p className="mt-4 lg:mr-20">Welcome back! Login to your account.</p>
         </div>
-        <div  className="mt-5 flex gap-5">
-          <div onClick={handleGoogleLogin} className="flex gap-3 p-5 px-10 font-bold rounded-xl bg-gray-200 cursor-pointer ">
+        <div className="mt-5 flex gap-5">
+          <div
+            onClick={handleGoogleLogin}
+            className="flex gap-3 p-5 px-10 font-bold rounded-xl bg-gray-200 cursor-pointer"
+          >
             <img src={image2} alt="" />
             <h1>Google</h1>
           </div>
-          <div className="flex gap-3 p-5 px-10 font-bold rounded-xl text-white bg-blue-600 ">
+          <div className="flex gap-3 p-5 px-10 font-bold rounded-xl text-white bg-blue-600">
             <img src={image3} alt="" />
             <h1>Facebook</h1>
           </div>
@@ -112,8 +115,8 @@ const Login = () => {
             </div>
             <div className="flex justify-between">
               <h1 className="">
-                <input className=" mr-5" type="checkbox" name="" id="" />
-                Remember me{" "}
+                <input className="mr-5" type="checkbox" name="" id="" />
+                Remember me
               </h1>
               <h1 className="text-blue-500 cursor-pointer underline">
                 Forget Password
@@ -131,11 +134,11 @@ const Login = () => {
           </form>
         </div>
       </div>
-      <div className="w-full lg:w-1/2">
+      <div className="flex-1">
         <img
           src={image}
           alt="Nurse"
-          className="rounded-xl w-full h-auto object-cover"
+          className="rounded-xl w-full h-auto object-cover lg:block hidden"
         />
       </div>
     </div>

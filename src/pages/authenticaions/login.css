@@ -1,0 +1,8 @@
+@media (max-width: 676) {
+    .small-screen-bg {
+      background-image: url('../../assets/images/Iphone.png');
+      background-size: cover;
+      background-position: center;
+    }
+  }
+  
