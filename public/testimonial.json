@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "Serenity Spa",
+    "review": "The massage at Serenity Spa was incredibly relaxing. The therapists are skilled and attentive, making sure to address all my problem areas. The ambiance is peaceful, and the facilities are clean. Highly recommended for a therapeutic experience!",
+    "photoUrl": "../src/assets/images/image 117.png",
+    "location": "123 Calm Street, Relaxville, CA 90210"
+  },
+  {
+    "id": 2,
+    "name": "Tranquil Retreat",
+    "review": "I had a wonderful experience at Tranquil Retreat. The massage was rejuvenating, and the environment was calming. The staff was friendly and professional. It's a perfect place to unwind and relieve stress. I will definitely return for another session!",
+    "photoUrl": "../src/assets/images/image 117.png",
+    "location": "456 Peace Avenue, Zen City, NY 10001"
+  }
+]

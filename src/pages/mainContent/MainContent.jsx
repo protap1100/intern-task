@@ -4,7 +4,7 @@ import Content from "./Content";
 
 const MainContent = () => {
   return (
-    <div className=" grid grid-cols-12">
+    <div className="bg-gray-200 grid grid-cols-12">
       {/* Navbar */}
       <div className="bg-blue-200 hidden lg:block col-span-1 border ">
         <Navbar></Navbar>
@@ -13,7 +13,7 @@ const MainContent = () => {
         <div className="bg-blue-200">
           <Topbar></Topbar>
         </div>
-        <div className=" mt-10">
+        <div className="mt-5 lg:mt-10">
           <Content></Content>
         </div>
       </div>
