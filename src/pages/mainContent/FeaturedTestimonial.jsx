@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import location from "../../assets/images/Location.png";
+
 
 const FeaturedTestimonial = () => {
   const [testimonials, setTestimonials] = useState([]);
@@ -45,7 +47,7 @@ const FeaturedTestimonial = () => {
               />
             </div>
             <div className="flex-grow">
-              <h1 className="text-gray-500">{test.location}</h1>
+              <h1 className="text-gray-500 flex gap-2 items-center"> <img src={location} alt="" /> {test.location}</h1>
               <h1 className="font-bold text-xl text-black">{test.name}</h1>
               <p>{displayReview}</p>
               {isLongReview && (

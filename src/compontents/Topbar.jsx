@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import image from "../assets/images/Group 12867.png";
 import { FaRegBell } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -6,6 +6,9 @@ import { AiOutlineClose } from "react-icons/ai";
 import NavIcons from "./NavIcons";
 import arrow from "../assets/images/arrow.png";
 import notification from "../assets/images/Notification.png";
+import { AuthContext } from "../provider/AuthProvider";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const Topbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,9 +16,30 @@ const Topbar = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+  const { user, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleLogout = () => {
-    console.log("hi");
+    Swal.fire({
+      title: `Are You Sure`,
+      text: "Do You Want To Logout",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        logOut().then(() => {
+          Swal.fire({
+            title: "Logout Successful",
+            text: "You Have Successfully Logged Out",
+            icon: "success",
+          });
+          navigate(location?.state ? location.state : "/");
+        });
+      }
+    });
   };
 
   return (
@@ -25,10 +49,10 @@ const Topbar = () => {
           <h1 className="text-2xl text-blue-600">LOGO</h1>
         </div>
         <div className="hidden lg:flex gap-5 items-center">
-          <img src={image} alt="" />
+          <img src={user?.photoURL || image} alt="" />
           <div>
-            <h1>Sagor Soni</h1>
-            <h1>Sagorsoni@gmail.com</h1>
+            <h1>{user?.displayName || "Sagor Soni"}</h1>
+            <h1>{user?.email || "Sagorsoni@gmail.com"}</h1>
           </div>
         </div>
         <div className="lg:hidden flex items-center gap-3">
@@ -63,7 +87,7 @@ const Topbar = () => {
           </div>
           <div className="bg-blue-500 flex flex-col justify-end items-end py-20">
             <div className="flex pr-5 flex-col  items-end">
-              <img src={image} alt="" />
+              <img src={user?.photoURL || image} alt="" />
               <div className="flex flex-col  items-end">
                 <h1 className="text-white text-3xl">Sagor Soni</h1>
                 <h1 className="text-xs">Sagorsoni@gmail.com</h1>

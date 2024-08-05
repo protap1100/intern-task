@@ -4,42 +4,42 @@
       "address": "123 Main St, Anytown, USA",
       "profession": "Software Developer",
       "id": "1",
-      "imgUrl": "../src/assets/images/image 116.png"
+      "imgUrl": "https://i.ibb.co/dPhQqP7/image-116-1.png"
     },
     {
       "name": "Jane Smith",
       "address": "456 Elm St, Othertown, USA",
       "profession": "Graphic Designer",
       "id": "2",
-      "imgUrl": "../src/assets/images/image 116.png"
+      "imgUrl": "https://i.ibb.co/khn5CpX/image-116.png"
     },
     {
       "name": "Emily Johnson",
       "address": "789 Maple Ave, Sometown, USA",
       "profession": "Data Scientist",
       "id": "3",
-      "imgUrl": "../src/assets/images/image 116.png"
+      "imgUrl": "https://i.ibb.co/7nnD2Py/image-121.png"
     },
     {
       "name": "Michael Brown",
       "address": "101 Oak St, Anycity, USA",
       "profession": "Product Manager",
       "id": "4",
-      "imgUrl": "../src/assets/images/image 116.png"
+      "imgUrl": "https://i.ibb.co/Srvx1M2/image-120.png"
     },
     {
       "name": "Sarah Wilson",
       "address": "202 Pine St, Thiscity, USA",
       "profession": "Marketing Specialist",
       "id": "5",
-      "imgUrl": "../src/assets/images/image 116.png"
+      "imgUrl": "https://i.ibb.co/dPhQqP7/image-116-1.png"
     },
     {
       "name": "David Lee",
       "address": "303 Birch Rd, Thatcity, USA",
       "profession": "UX Designer",
       "id": "6",
-      "imgUrl": "../src/assets/images/image 116.png"
+      "imgUrl": "https://i.ibb.co/DDXMcJc/image-117.png"
     }
   ]
   

@@ -4,7 +4,7 @@ import ErrorPage from "../pages/errorPage/ErrorPage";
 import Home from "../pages/home/Home";
 import Register from "../pages/authenticaions/Register";
 import Login from "../pages/authenticaions/Login";
-// import PrivateRouter from "./PrivateRoutes";
+import PrivateRouter from "./PrivateRoutes";
 import MainContent from "../pages/mainContent/MainContent";
 
 export const router = createBrowserRouter([
@@ -15,7 +15,11 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home></Home>,
+        element: (
+          <PrivateRouter>
+            <Home></Home>
+          </PrivateRouter>
+        ),
       },
       {
         path: "/login",
@@ -27,7 +31,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/main-content",
-        element: <MainContent></MainContent>,
+        element: (
+          <PrivateRouter>
+            <MainContent></MainContent>
+          </PrivateRouter>
+        ),
       },
     ],
   },

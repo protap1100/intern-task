@@ -5,6 +5,9 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+import "./swiper-custom.css";
+import location from "../../assets/images/Location.png";
+import mobile from "../../assets/images/Mobile.png";
 
 const FeaturedTherapist = () => {
   const [therapists, setTherapists] = useState([]);
@@ -16,7 +19,7 @@ const FeaturedTherapist = () => {
       .then((data) => {
         setTherapists(data);
         setLoading(false);
-      })
+      });
   }, []);
 
   if (loading) {
@@ -25,16 +28,16 @@ const FeaturedTherapist = () => {
 
   return (
     <Swiper
-    className="mx-20"
+      className="custom-swiper"
       modules={[Navigation, Pagination, Scrollbar, A11y]}
-      spaceBetween={20}
+      spaceBetween={50}
       navigation
       loop={true}
       scrollbar={{ draggable: true }}
       breakpoints={{
         640: {
           slidesPerView: 1,
-          spaceBetween: 10,
+          spaceBetween: 50,
         },
         768: {
           slidesPerView: 2,
@@ -57,7 +60,7 @@ const FeaturedTherapist = () => {
       onSlideChange={() => console.log("slide change")}
     >
       {therapists.map((therapist) => (
-        <SwiperSlide className="mx-10 my-6" key={therapist.id}>
+        <SwiperSlide className="mx-20 my-6" key={therapist.id}>
           <div className="border border-gray-400 rounded-2xl shadow-xl">
             <div className="p-3">
               <img
@@ -66,8 +69,14 @@ const FeaturedTherapist = () => {
                 alt={therapist.name}
               />
               <h2 className="text-xl font-bold mt-2">{therapist.name}</h2>
-              <p className="mt-2">{therapist.profession}</p>
-              <p className="mt-2">{therapist.address}</p>
+              <p className="mt-2 flex gap-2 items-center">
+                <img src={location} alt="Location" className="w-4 h-4" />
+                {therapist.address}
+              </p>
+              <p className="mt-2 flex gap-2 items-center">
+                <img src={mobile} alt="Mobile" className="w-4 h-4" />
+                {therapist.profession}
+              </p>
             </div>
             <button className="p-2 w-full mt-3 rounded-b-xl text-white text-center bg-blue-300 hover:bg-blue-400">
               See Details

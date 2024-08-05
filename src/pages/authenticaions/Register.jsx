@@ -3,6 +3,7 @@ import image from "../../assets/images/Group 1000001745.png";
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -22,26 +23,40 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (form.password !== form.retypePassword) {
-      alert("Passwords do not match!");
+      Swal.fire({
+        title: "Wrong Password",
+        text: "Passwords do not match!",
+        icon: "error",
+      });
       return;
     }
     createUser(form.email, form.password).then(
-      alert("User Registration Successful")
+      Swal.fire({
+        title: "Register Successful",
+        text: "You Have Registered Successfully",
+        icon: "success",
+      })
     );
   };
 
   return (
-    <div className="flex lg:flex-row flex-col-reverse justify-center items-center gap-6 mt-20">
+    <div className="flex lg:flex-row container mx-auto flex-col-reverse justify-center items-center gap-6 mt-20">
       <div className="flex-1 px-5">
         <div>
-          <h1 className="text-4xl text-blue-500">LOGO</h1>
-          <h1 className="text-3xl font-bold mt-5">Sign in to Your Account</h1>
-          <h1 className="mr-0 lg:mr-20">
+          <h1 className="text-4xl text-center lg:text-left  text-blue-500">
+            LOGO
+          </h1>
+          <h1 className="text-3xl text-center lg:text-left  font-bold mt-5">
+            Sign in to Your Account
+          </h1>
+          <h1 className="mr-0  text-center lg:text-left  lg:mr-20 mt-4">
             Welcome back! Lorem ipsum dolor sit amet, consectetur adipisicing
             elit. Perferendis doloribus tenetur, ea voluptatem architecto
             beatae. Eum omnis debitis inventore at.
           </h1>
-          <Link className="text-blue-500 underline">Privacy And Policy</Link>
+          <Link className="text-center lg:text-left text-blue-500 underline">
+            Privacy And Policy
+          </Link>
         </div>
         <div className="mt-10">
           <form onSubmit={handleSubmit}>
@@ -98,7 +113,7 @@ const Register = () => {
             </div>
             <div className="mb-5">
               <label className="mb-3 block text-base font-medium text-[#07074D]">
-                Retype Password
+                Confirm Password
               </label>
               <div className="relative">
                 <input
@@ -151,8 +166,19 @@ const Register = () => {
           </form>
         </div>
       </div>
-      <div className="flex-1">
-        <img className="rounded px-5" src={image} alt="Nurse" />
+      <div className="relative flex-1">
+        <img
+          src={image}
+          alt="Nurse"
+          className="rounded-xl w-full h-auto object-cover lg:block hidden"
+        />
+
+        <div className="absolute inset-0 hidden lg:flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
+          <div className="text-center text-white p-6 bg-black bg-opacity-60 rounded-lg">
+            <h1 className="text-2xl text-blue-500 mb-4 ">Create Account</h1>
+            <p className="text-lg">Fill in Your Information</p>
+          </div>
+        </div>
       </div>
     </div>
   );
