@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import image from "../../assets/images/Group 1000001745.png";
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -32,6 +32,7 @@ const Login = () => {
           icon: "success",
         });
         navigate(location?.state ? location.state : "/main-content");
+        <Navigate to="/main-content" replace={true} />
       })
       .catch((error) => {
         alert(`Login failed: ${error.message}`);
@@ -47,6 +48,7 @@ const Login = () => {
           icon: "success",
         });
         navigate(location?.state ? location.state : "/main-content");
+        // <Navigate to="/main-content" replace={true} />
       })
       .catch((error) => {
         alert(`Login failed: ${error.message}`);
